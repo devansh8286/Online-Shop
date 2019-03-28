@@ -1,12 +1,22 @@
-<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
-    pageEncoding="ISO-8859-1"%>
-<!DOCTYPE html>
-<html>
-<head>
-<meta charset="ISO-8859-1">
-<title>Insert title here</title>
-</head>
-<body>
 
-</body>
-</html>
+	<!-- Footer -->
+
+<style>
+.footer {
+
+
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  text-align: center;
+}
+</style>
+
+<div class="footer" >
+  	<footer class="py-3 bg-dark">
+		<div class="container">
+			<p class="m-0 text-center text-white">Copyright &copy; GADGETDEV</p>
+		</div>
+	</footer>
+
+</div>
