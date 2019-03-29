@@ -15,6 +15,15 @@
 	</properties>
 
 	<dependencies>
+		<!-- Back-end -->
+		<dependency>
+			<groupId>com.project</groupId>
+			<artifactId>Backend</artifactId>
+			<version>0.0.1-SNAPSHOT</version>
+		</dependency>
+
+
+
 		<!-- https://mvnrepository.com/artifact/javax/javaee-api -->
 		<dependency>
 			<groupId>javax</groupId>

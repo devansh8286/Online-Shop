@@ -54,6 +54,11 @@ window.menu='${title}';
 	<c:if test="${userClickContact == true }">
 		<%@include file="contact.jsp"%>
 	</c:if>
+	
+<!-- userclickallProduct or CATEGORY product -->
+	<c:if test="${userClickAllProducts==true or userClickCategoryProducts==true}">
+		<%@include file="listProduct.jsp"%>
+	</c:if>
 
 	<!-- footeR -->
 
