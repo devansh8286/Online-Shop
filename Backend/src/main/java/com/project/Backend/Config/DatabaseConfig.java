@@ -14,25 +14,29 @@ import org.springframework.orm.hibernate5.LocalSessionFactoryBuilder;
 import org.springframework.transaction.annotation.EnableTransactionManagement;
 
 @Configuration
-@ComponentScan(basePackages = { "com.project.Backend.Model" })
+@ComponentScan(basePackages = { "com" })
 @EnableTransactionManagement
 public class DatabaseConfig {
 
+	
 	private final static String DATABASE_URL = "jdbc:h2:tcp://localhost/~/OS";
 	private final static String DATABASE_DRIVER = "org.h2.Driver";
 	private final static String DATABASE_DIALECT = "org.hibernate.dialect.H2Dialect";
 	private final static String DATABASE_USERNAME = "OS";
 	private final static String DATABASE_PASSWORD = "";
 
+	
 	@Bean
 	public DataSource getDataSource() {
-		BasicDataSource datasource = new BasicDataSource();
+		BasicDataSource dataSource = new BasicDataSource();
 		// database connection information
-		datasource.setDriverClassName(DATABASE_DRIVER);
-		datasource.setUrl(DATABASE_URL);
-		datasource.setUsername(DATABASE_USERNAME);
-		datasource.setPassword(DATABASE_PASSWORD);
-		return datasource;
+		
+		dataSource.setDriverClassName(DATABASE_DRIVER);
+		dataSource.setUrl(DATABASE_URL);
+		dataSource.setUsername(DATABASE_USERNAME);
+		dataSource.setPassword(DATABASE_PASSWORD);
+			
+		return dataSource;
 	}
 
 	// sessionFactory
@@ -52,11 +56,14 @@ public class DatabaseConfig {
 
 		Properties properties = new Properties();
 
-		properties.put("hibernate.dialect", DATABASE_DIALECT);
+
+		properties.put("hibernate.dialect", DATABASE_DIALECT);		
 		properties.put("hibernate.show_sql", "true");
 		properties.put("hibernate.format_sql", "true");
+		properties.put("hibernate.hbm2ddl.auto", "update");  // change to update after all complete
+		System.out.println("Hibernate Properties created");
+		return properties;
 
-		return null;
 	}
 	
 	//Transaction Manage bean

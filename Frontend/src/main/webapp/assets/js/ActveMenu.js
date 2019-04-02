@@ -1,24 +1,25 @@
-$(function () {
-	
-	switch(menu){
-	case'About Us':
+$(function() {
+
+	switch (menu) {
+	case 'About Us':
 		$('#about').addClass('active');
 		break;
 
-	case'Contact':
+	case 'Contact':
 		$('#contact').addClass('active');
 		break;
-	
-	case'All Product':
+
+	case 'All Product':
 		$('#product').addClass('active');
 		break;
 
-		defaultf:
-			{
-			$
-			('#Product').addClass('active');
-			$('#a_'+menu).addClass('active');
+	defaultf: {
+		if (menu == "home")
 			break;
-			}
+
+		$('#Product').addClass('active');
+		$('#a_' + menu).addClass('active');
+		break;
 	}
+}
 });

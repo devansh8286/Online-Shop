@@ -3,7 +3,10 @@ package com.project.Backend.DAOImpl;
 import java.util.ArrayList;
 import java.util.List;
 
+import javax.transaction.Transaction;
+
 import org.hibernate.SessionFactory;
+import org.hibernate.query.Query;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 import org.springframework.transaction.annotation.Transactional;
@@ -11,14 +14,14 @@ import com.project.Backend.DAO.CategoryDAO;
 import com.project.Backend.Model.Category;
 
 @Repository("categoryDAO")
-
+@Transactional
 public class CategoryDAOImpl implements CategoryDAO {
 
 	@Autowired
 	private SessionFactory sessionFactory;
 
 	@Override
-	@Transactional
+
 	public boolean add(Category category) {
 		try {
 			sessionFactory.getCurrentSession().persist(category);
@@ -26,48 +29,55 @@ public class CategoryDAOImpl implements CategoryDAO {
 			return true;
 
 		} catch (Exception e) {
+			System.out.println("error is");
 			e.printStackTrace();
 			return false;
 		}
 
 	}
 
-	public static List<Category> categories = new ArrayList<>();
+	@Override
+	public boolean update(Category category) {
+		try {
 
-	static {
-		Category category = new Category();
-		category.setId(1);
-		category.setName("LAPTOP");
-		category.setDescription("This is Laptop");
-		category.setImageUrl("1.png");
-		category.setActive(true);
-		categories.add(category);
-
-		category = new Category();
-		category.setId(2);
-		category.setName("Mobile");
-		category.setDescription("This is Mobile");
-		category.setImageUrl("2.png");
-		category.setActive(true);
-		categories.add(category);
+			sessionFactory.getCurrentSession().update(category);
+			return true;
+		} catch (Exception e) {
+			e.printStackTrace();
+			return false;
+		}
 
 	}
 
+	@Override
+	public boolean delete(Category category) {
+		category.setActive(false);
+		
+		try {
+			sessionFactory.getCurrentSession().update(category);
+
+			return true;
+		} catch (Exception e) {
+			e.printStackTrace();
+			return false;
+		}
+
+	}
+
+	@Override
 	public List<Category> CList() {
-		// TODO Auto-generated method stub
-		return categories;
+
+		String selectActiveCategory="FROM Category WHERE active=:active";
+		Query query=sessionFactory.getCurrentSession().createQuery(selectActiveCategory);
+		query.setParameter("active", true);
+		
+		return query.getResultList();
 	}
 
 	@Override
 	public Category get(int id) {
 
-		// enchan forloop
-		for (Category category : categories) {
-			if (category.getId() == id)
-				return category;
-		}
-		return null;
-
+		return sessionFactory.getCurrentSession().get(Category.class, Integer.valueOf(id));
 	}
 
 }

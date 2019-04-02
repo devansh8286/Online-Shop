@@ -14,7 +14,7 @@
    
    ">
    <context:component-scan base-package="com.project.Frontend.controller"/>
-   <context:component-scan base-package="com.project.Backend.DAOImpl"/>
+   <context:component-scan base-package="com.project.Backend"/>
 		
 		<bean id="viewResolver"
 		class="org.springframework.web.servlet.view.InternalResourceViewResolver">

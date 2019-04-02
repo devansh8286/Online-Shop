@@ -46,7 +46,7 @@ public class Category {
 	@Column(name="image_url")
 	private String imageUrl;
 	
-	
+	@Column(name="is_active")
 	private boolean active=true;
 	@Override
 	public String toString() {
