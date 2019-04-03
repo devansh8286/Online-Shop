@@ -5,7 +5,7 @@
 <spring:url var="css" value="/Resources/css" />
 <spring:url var="js" value="/Resources/js" />
 <spring:url var="img" value="/Resources/images" />
-<c:set var="contextRoot" value="${pageContext.request.contextPath}"/>
+<c:set var="contextRoot" value="${pageContext.request.contextPath}" />
 <!DOCTYPE html>
 <html>
 <head>
@@ -24,13 +24,17 @@
 <!-- Latest compiled JavaScript -->
 <script
 	src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
-
+<!--JQuery DATATAble -->
+<script
+	src="https://cdn.datatables.net/1.10.19/js/jquery.dataTables.min.js"></script>
 
 <meta charset="utf-8">
 
 <title>GADGETDEV- ${title}</title>
 <script>
-window.menu='${title}';
+	window.menu = '${title}';
+
+	window.contextRoot = '${contextRoot}';
 </script>
 <!-- Custom styles for this template -->
 <link href="${css }/home.css" rel="stylesheet">
@@ -46,24 +50,23 @@ window.menu='${title}';
 	<c:if test="${userClickHome == true }">
 		<%@include file="home.jsp"%>
 	</c:if>
-<!-- userclickabout -->
+	<!-- userclickabout -->
 	<c:if test="${userClickAbout == true }">
 		<%@include file="about.jsp"%>
 	</c:if>
-<!-- userclickContact -->
+	<!-- userclickContact -->
 	<c:if test="${userClickContact == true }">
 		<%@include file="contact.jsp"%>
 	</c:if>
-	
-<!-- userclickallProduct or CATEGORY product -->
-	<c:if test="${userClickAllProducts==true or userClickCategoryProducts==true}">
+
+	<!-- userclickallProduct or CATEGORY product -->
+	<c:if
+		test="${userClickAllProducts==true or userClickCategoryProducts==true}">
 		<%@include file="listProduct.jsp"%>
 	</c:if>
 
 	<!-- footeR -->
 
 	<%@include file="Footer.jsp"%>
-
-
 </body>
 </html>

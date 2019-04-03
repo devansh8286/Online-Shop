@@ -14,12 +14,14 @@ $(function() {
 		break;
 
 	defaultf: {
-		if (menu == "home")
+		if (menu == "Home")
 			break;
 
 		$('#Product').addClass('active');
 		$('#a_' + menu).addClass('active');
 		break;
 	}
-}
+
+	}
+	
 });
