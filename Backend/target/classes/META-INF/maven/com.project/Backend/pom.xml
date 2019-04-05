@@ -15,7 +15,6 @@
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 		<spring.version>5.1.5.RELEASE</spring.version>
 		<hibernate.version>5.2.7.Final</hibernate.version>
-<!-- 		<jackson.version>2.9.8</jackson.version> -->
 
 	</properties>
 
@@ -38,7 +37,7 @@
 
 		<!-- Jackson -->
 
-		<!-- https://mvnrepository.com/artifact/com.fasterxml.jackson.core/jackson-databind -->
+<!-- 		https://mvnrepository.com/artifact/com.fasterxml.jackson.core/jackson-databind -->
 		<dependency>
 			<groupId>com.fasterxml.jackson.core</groupId>
 			<artifactId>jackson-databind</artifactId>

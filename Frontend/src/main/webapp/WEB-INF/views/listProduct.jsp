@@ -3,26 +3,13 @@
 
 <spring:url var="css" value="/Resources/css" />
 <spring:url var="js" value="/Resources/js" />
-<spring:url var="img" value="/Resources/images" />
+<spring:url var="img" value="/Resources/image" />
 <c:set var="contextRoot" value="${pageContext.request.contextPath}" />
 <!-- -------------------------------------------------------------------------------------------------------- -->
-
-<link href="${css }/dataTable.css" rel="stylesheet">
-<script src="${js}/dataTable.js"></script>
+<script src="${js}/jquery.dataTables.js"></script>
 <!-- -------------------------------------------------------------------------------------------------------------------- -->
-<script
-	src="https://cdn.datatables.net/1.10.19/js/jquery.dataTables.min.js"></script>
-
 
 <c:set var="contextRoot" value="${pageContext.request.contextPath}" />
-<link
-	href="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
-	rel="stylesheet" id="bootstrap-css">
-<script
-	src="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
-<script
-	src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-<!------ Include the above in your HEAD tag ---------->
 
 <script>
 
@@ -71,8 +58,7 @@ window.contextRoot = '${contextRoot}';
 				</c:if>
 			</div>
 
-			<script
-				src="https://cdn.datatables.net/1.10.16/js/jquery.dataTables.min.js"></script>
+
 			<script
 				src="https://cdn.datatables.net/1.10.16/js/dataTables.bootstrap4.min.js"></script>
 			<div class="container">
@@ -81,11 +67,13 @@ window.contextRoot = '${contextRoot}';
 						class="table table-striped table-bordered" style="width: 100%">
 						<thead>
 							<tr>
+								<th></th>
 								<th>Name</th>
-								<th>brand</th>
-								<th>price</th>
-								<th>quantity</th>
-								
+								<th>Brand</th>
+								<th>Price</th>
+								<th>Quantity</th>
+								<th></th>
+
 							</tr>
 
 
