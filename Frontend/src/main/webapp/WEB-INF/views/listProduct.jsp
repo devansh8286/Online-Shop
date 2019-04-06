@@ -12,76 +12,81 @@
 <c:set var="contextRoot" value="${pageContext.request.contextPath}" />
 
 <script>
-
-window.contextRoot = '${contextRoot}';
-
+	window.contextRoot = '${contextRoot}';
 </script>
 
-<div class="container">
+<div class="container-fluid">
+	<div class="container">
 
-
-	<%@ include file="sidebar.jsp"%>
-
-	<div class="col-md-9">
-		<!-- adding breadcrumb -->
 		<div class="row">
 
-			<div class="col-lg-12">
-				<c:if test="${userClickAllProducts==true}">
-					<script>
-				window.categoryId='';
-				</script>
+			<div class="col-lg-3">
 
-					<nav aria-label="breadcrumb">
-						<ol class="breadcrumb">
-							<li class="breadcrumb-item"><a href="${contextRoot }/home">home</a></li>
-							<li class="breadcrumb-item active" aria-current="page">AllProduct</li>
-						</ol>
-					</nav>
+				<%@include file="sidebar.jsp"%>
 
-				</c:if>
-				<c:if test="${userClickCategoryProducts==true}">
-					<script>
-					
-					window.categoryId='${category.id}';
-					</script>
-					<nav aria-label="breadcrumb">
-						<ol class="breadcrumb">
-							<li class="breadcrumb-item"><a href="${contextRoot }/home">home</a></li>
-							<li class="breadcrumb-item active" aria-current="page">category</li>
-							<li class="breadcrumb-item active" aria-current="page">
-								${category.name}</li>
-
-						</ol>
-					</nav>
-
-				</c:if>
 			</div>
 
-
-			<script
-				src="https://cdn.datatables.net/1.10.16/js/dataTables.bootstrap4.min.js"></script>
-			<div class="container">
+			<div class="col-md-9">
+				<!-- adding breadcrumb -->
 				<div class="row">
-					<table id="productListTable"
-						class="table table-striped table-bordered" style="width: 100%">
-						<thead>
-							<tr>
-								<th></th>
-								<th>Name</th>
-								<th>Brand</th>
-								<th>Price</th>
-								<th>Quantity</th>
-								<th></th>
 
-							</tr>
+					<div class="col-lg-12">
+						<c:if test="${userClickAllProducts==true}">
+							<script>
+								window.categoryId = '';
+							</script>
+
+							<nav aria-label="breadcrumb">
+								<ol class="breadcrumb">
+									<li class="breadcrumb-item"><a href="${contextRoot }/home">home</a></li>
+									<li class="breadcrumb-item active" aria-current="page">AllProduct</li>
+								</ol>
+							</nav>
+
+						</c:if>
+						<c:if test="${userClickCategoryProducts==true}">
+							<script>
+								window.categoryId = '${category.id}';
+							</script>
+							<nav aria-label="breadcrumb">
+								<ol class="breadcrumb">
+									<li class="breadcrumb-item"><a href="${contextRoot }/home">home</a></li>
+									<li class="breadcrumb-item active" aria-current="page">category</li>
+									<li class="breadcrumb-item active" aria-current="page">
+										${category.name}</li>
+
+								</ol>
+							</nav>
+
+						</c:if>
+					</div>
 
 
-						</thead>
-					</table>
+					<script
+						src="https://cdn.datatables.net/1.10.16/js/dataTables.bootstrap4.min.js"></script>
+					<div class="container">
+						<div class="row">
+							<table id="productListTable"
+								class="table table-striped table-bordered" style="width: 100%">
+								<thead>
+									<tr>
+										<th></th>
+										<th>Name</th>
+										<th>Brand</th>
+										<th>Price</th>
+										<th>Quantity</th>
+										<th></th>
+
+									</tr>
+
+
+								</thead>
+							</table>
+						</div>
+					</div>
+
 				</div>
 			</div>
-
 		</div>
 
 	</div>

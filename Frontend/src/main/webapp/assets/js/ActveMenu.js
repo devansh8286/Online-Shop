@@ -14,7 +14,7 @@ $(function() {
 		break;
 
 	defaultf: {
-		if (menu == "Home")('active');
+		if (menu == "Home")
 			break;
 
 		$('#Product').addClass('active');
@@ -95,10 +95,10 @@ if ($table.length) {
 						var str = '';
 						//for view 
 						str += '<a href="' + window.contextRoot + '/show/'
-								+ data + '/product" class="btn btn-primary"><span class="glyphicon-eye-open"></span></a>&#160';
+								+ data + '/product" class="btn btn-primary"><span class="gryphicon-eye-open"></span></a>&#0160';
 						// for Cart
 						str += '<a href="' + window.contextRoot + '/cart/add/'
-								+ data + '/product" class="btn btn-success"><span class="glyphicon-shopping-cart"></span></a>';
+								+ data + '/product" class="btn btn-success"><span class="gryphicon-shopping-cart"></span></a>';
 
 						return str;
 					}
@@ -109,3 +109,23 @@ if ($table.length) {
 }
 
 });
+
+
+
+
+
+
+
+
+
+
+/*var str = '';
+//for view 
+str += '<a href="' + window.contextRoot + '/show/'
+		+ data + '/product" class="btn btn-primary"><span class="glyphicon-eye-open"></span></a>&#160';
+// for Cart
+str += '<a href="' + window.contextRoot + '/cart/add/'
+		+ data + '/product" class="btn btn-success"><span class="glyphicon-shopping-cart"></span></a>';
+
+return str;
+*/

@@ -1,13 +1,13 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
 	pageEncoding="ISO-8859-1"%>
-<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
-<%@ taglib prefix="spring" uri="http://www.springframework.org/tags"%>
-
-<spring:url var="css" value="/Resources/css" />
-
-<spring:url var="js" value="/Resources/js" />
-
-<spring:url var="img" value="/Resources/image" />
+	<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+	<%@ taglib prefix="spring" uri="http://www.springframework.org/tags"%>
+	
+	<spring:url var="css" value="/Resources/css" />
+	
+	<spring:url var="js" value="/Resources/js" />
+	
+	<spring:url var="img" value="/Resources/image" />
 
 <c:set var="contextRoot" value="${pageContext.request.contextPath}" />
 
@@ -61,13 +61,19 @@
 
 <script>
 	window.menu = '${title}';
-
+	
 	window.contextRoot = '${contextRoot}';
 </script>
 <!-- Custom styles for this template -->
 
+<link href="${css }/FontAwesome/css" rel="stylesheet">
+
+
+<!-- image css -->
 <link href="${css }/home.css" rel="stylesheet">
 
+
+<link href="${css }/my.css" rel="stylesheet">
 
 <script src="${js}/ActveMenu.js"></script>
 
@@ -106,13 +112,17 @@
 		<%@include file="listProduct.jsp"%>
 	</c:if>
 
+<!-- only load when user click show Product -->
+
+<c:if
+		test="${userClickShowProduct==true}">
+		<%@include file="singleProductDisplay.jsp"%>
+	</c:if>
+
+
 	<!-- footeR -->
 
 	<%@include file="Footer.jsp"%>
-
-
-
-
 
 </body>
 </html>

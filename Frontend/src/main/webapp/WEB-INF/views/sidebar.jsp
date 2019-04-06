@@ -4,7 +4,7 @@
 <c:set var="contextRoot" value="${pageContext.request.contextPath}"/>
 
 
-<h1 class="my-4">Shop Name</h1>
+<h1 class="my-4">${title}</h1>
 <div class="list-group">
 
 <c:forEach items="${categories}" var="category">
