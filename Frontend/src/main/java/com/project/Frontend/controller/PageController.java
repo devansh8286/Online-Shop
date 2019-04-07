@@ -2,6 +2,7 @@ package com.project.Frontend.controller;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.springframework.aop.ThrowsAdvice;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -12,6 +13,7 @@ import com.project.Backend.DAO.CategoryDAO;
 import com.project.Backend.DAO.ProductDAO;
 import com.project.Backend.Model.Category;
 import com.project.Backend.Model.Product;
+import com.project.Frontend.exception.ProductNotFoundException;
 
 @Controller
 public class PageController {
@@ -92,11 +94,11 @@ public class PageController {
 	
 
 	//For viewing a single Product
-	@RequestMapping(value="/show/{id}/product")
-	public ModelAndView showSingleProduct(@PathVariable int id) {
+	@RequestMapping(value="/show/{id}/product") 
+	public ModelAndView showSingleProduct(@PathVariable int id) throws ProductNotFoundException {
 		ModelAndView mv=new ModelAndView("page");
 		Product product=productDAO.get(id);
-		
+		if(product == null) throw new ProductNotFoundException(); 
 		//update the view Count
 		product.setViews(product.getViews()+1);
 		productDAO.update(product);
