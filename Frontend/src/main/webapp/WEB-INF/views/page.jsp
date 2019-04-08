@@ -119,6 +119,13 @@
 		<%@include file="singleProductDisplay.jsp"%>
 	</c:if>
 
+<!-- user Click MANAGE PRODUCT -->
+
+<c:if
+		test="${userClickManageProducts==true}">
+		<%@include file="manageProduct.jsp"%>
+	</c:if>
+
 
 	<!-- footeR -->
 

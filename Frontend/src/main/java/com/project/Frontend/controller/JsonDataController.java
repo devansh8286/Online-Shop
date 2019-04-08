@@ -20,13 +20,13 @@ public class JsonDataController {
 	@RequestMapping("/all/products")
 	@ResponseBody
 	public List<Product> getAllProduct() {
-		return productDAO.listActiveProduct();
+		return productDAO.listActiveProducts();
 	}
 
 	@RequestMapping("/category/{id}/products")
 	@ResponseBody
 	public List<Product> getAllCategory(@PathVariable int id) {
-		return productDAO.listActiveProductsByCategoy(id);
+		return productDAO.listActiveProductsByCategory(id);
 	}
 
 }

@@ -1,71 +1,71 @@
-//package com.project.Backend.Catrgory;
-//
-//import static org.junit.Assert.assertEquals;
-//
-//import org.junit.BeforeClass;
-//import org.junit.Test;
-//import org.springframework.context.annotation.AnnotationConfigApplicationContext;
-//
-//import com.project.Backend.DAO.CategoryDAO;
-//import com.project.Backend.Model.Category;
-//
-//public class TestCategory {
-//	public static AnnotationConfigApplicationContext context;
-//
-//	public static CategoryDAO categoryDAO;
-//
-//	private Category category;
-//
-//	@BeforeClass
-//	public static void init() {
-//		context = new AnnotationConfigApplicationContext();
-//		context.scan("com");
-//		context.refresh();
-//		categoryDAO = (CategoryDAO) context.getBean("categoryDAO");
+package com.project.Backend.Catrgory;
+
+import static org.junit.Assert.assertEquals;
+
+import org.junit.BeforeClass;
+import org.junit.Test;
+import org.springframework.context.annotation.AnnotationConfigApplicationContext;
+
+import com.project.Backend.DAO.CategoryDAO;
+import com.project.Backend.Model.Category;
+
+public class TestCategory {
+	public static AnnotationConfigApplicationContext context;
+
+	public static CategoryDAO categoryDAO;
+
+	private Category category;
+
+	@BeforeClass
+	public static void init() {
+		context = new AnnotationConfigApplicationContext();
+		context.scan("com");
+		context.refresh();
+		categoryDAO = (CategoryDAO) context.getBean("categoryDAO");
+
+	}
+
+//	@Test
+//	public void addCategory() {
+//		category = new Category();
+//			category.setName("mobile");
+//		category.setDescription("This is mobile");
+//		category.setImageUrl(".png");
+//		
+//		assertEquals("Sucessfully added in category", true, categoryDAO.add(category));
 //
 //	}
-//
-////	@Test
-////	public void addCategory() {
-////		category = new Category();
-////			category.setName("mobile");
-////		category.setDescription("This is mobile");
-////		category.setImageUrl(".png");
-////		
-////		assertEquals("Sucessfully added in category", true, categoryDAO.add(category));
-////
-////	}
-////	
-////	@Test
-////	public void getCategory() {
-////	category=categoryDAO.get(3);
-////	assertEquals("sucessfull get by id a single ","mobile",category.getName());
-////	}
-////
-////	@Test
-////	public void updateCategory() {
-////	category=categoryDAO.get(3);
-////	category.setName("phone")  ; 
-////	assertEquals("sucessfull update ",true,categoryDAO.update(category));
-////	}
-////	
-////	@Test
-////	public void deleteCategory() {
-////	category=categoryDAO.get(3);
-////	
-////	assertEquals("sucessfull delete ",true,categoryDAO.delete(category));
-////	}
-////
-////	@Test	
-////	public void listCategory() {
-////
-////	
-////	assertEquals("sucessfull list of Category ",2,categoryDAO.CList().size());
-////	}
+//	
+//	@Test
+//	public void getCategory() {
+//	category=categoryDAO.get(3);
+//	assertEquals("sucessfull get by id a single ","mobile",category.getName());
+//	}
 //
 //	@Test
-//	public void CRUD() {
+//	public void updateCategory() {
+//	category=categoryDAO.get(3);
+//	category.setName("phone")  ; 
+//	assertEquals("sucessfull update ",true,categoryDAO.update(category));
+//	}
+//	
+//	@Test
+//	public void deleteCategory() {
+//	category=categoryDAO.get(3);
+//	
+//	assertEquals("sucessfull delete ",true,categoryDAO.delete(category));
+//	}
 //
+//	@Test	
+//	public void listCategory() {
+//
+//	
+//	assertEquals("sucessfull list of Category ",2,categoryDAO.CList().size());
+//	}
+
+	@Test
+	public void CRUD() {
+
 //			
 //		//ADDING.....................
 //		
@@ -95,10 +95,10 @@
 //	category=categoryDAO.get(2);
 //	
 //	assertEquals("sucessfull delete ",true,categoryDAO.delete(category));
-//	
-//
-//	//list.................................................
-//	assertEquals("sucessfull list of Category ",1,categoryDAO.CList().size());
-//	
-//	}
-//}
+	
+
+	//list.................................................
+	assertEquals("sucessfull list of Category ",2,categoryDAO.CList().size());
+	
+	}
+}

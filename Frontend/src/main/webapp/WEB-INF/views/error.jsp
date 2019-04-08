@@ -50,9 +50,9 @@
 
 	<%@include file="Navbar.jsp"%>
 
-<h1> ${errorTitle}</h1>
+<%-- <h1> ${errorTitle}</h1> --%>
 
-		<h2> ${errorDescription }</h2>
+<%-- 		<h2> ${errorDescription }</h2> --%>
 	<!-- footeR -->
 
 	<%@include file="Footer.jsp"%>
