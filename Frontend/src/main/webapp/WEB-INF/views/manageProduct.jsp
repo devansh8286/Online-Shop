@@ -3,40 +3,43 @@
 
 <%@ taglib prefix="sf" uri="http://www.springframework.org/tags/form"%>
 <c:set var="contextRoot" value="${pageContext.request.contextPath}" />
+
 <div class="container">
+	<c:if test="${not empty messege}">
+
+		<div class="col-xs-12">
+			<div class="alert alert-success alert-dismissible">
+				<button type="button" class="close" data-dismiss="alert">&times;</button>
+
+				${messege}
+			</div>
+		</div>
+	</c:if>
+
 
 	<div class="row">
 
-		<c:if test="${not empty messege }">
-
-			<div class="col-xs-12">
-				<div class="alert alert-success alert-dismissible">
-					<button type="button" class="close" data-dismiss="alert">&times;</button>
-
-					${message}
-				</div>
-			</div>
-		</c:if>
 
 		<div class="col-md-offset-2 col-md-8">
-			<div class="panel panel-default">
+			<div class="panel card">
 
-				<div class="panel-heading">
+				<div class="card-header">
 
 					<h4>Product Management</h4>
 
 				</div>
-				<div class="panel-body">
+				<div class="card-body">
 					<!-- FORM ELEMENTS -->
 					<sf:form class="form-horizontal" modelAttribute="product"
 						action="${contextRoot}/manage/products" method="POST"
 						enctype="multipart/form-data">
+
 						<!-- modelAttribute linking to manageController -->
 
 						<!--------------------------------------------------------------------------------------------- -->
 
 						<div class="form-group">
-							<label class="control-label col-md-4" for="name">Enter
+							<label class="col-form-label-lg	 col-md-4" for="name">Enter
 								Product Name:</label>
 
 							<div class="col-md-8">
@@ -51,7 +54,7 @@
 						<!-- --------------------------------------------------------------------------------------------------------------------------------------- -->
 
 						<div class="form-group">
-							<label class="control-label col-md-4" for="brand">Enter
+							<label class="col-form-label-lg col-md-4" for="brand">Enter
 								Brand Name:</label>
 
 							<div class="col-md-8">
@@ -67,7 +70,7 @@
 						<!-- -------------------------------------------------------------------------------------------------------------------------------------------------- -->
 
 						<div class="form-group">
-							<label class="control-label col-md-4" for="description">Enter
+							<label class="col-form-label-lg col-md-4" for="description">Enter
 								description:</label>
 
 							<div class="col-md-8">
@@ -82,7 +85,7 @@
 
 
 						<div class="form-group">
-							<label class="control-label col-md-4" for="unitprice">Enter
+							<label class="col-form-label-lg col-md-4" for="unitprice">Enter
 								Price</label>
 
 							<div class="col-md-8">
@@ -100,40 +103,57 @@
 
 
 						<div class="form-group">
-							<label class="control-label col-md-4" for="quantity">Enter
+							<label class="col-form-label-lg col-md-4" for="quantity">Enter
 								Quantity:</label>
 
 							<div class="col-md-8">
 
 								<sf:input type="text" path="quantity" id="quantity"
 									placeholder="quantity" class="form-control" />
+
 							</div>
 
 						</div>
 						<!-- ------------------------------------------------------------------------------------------------>
-						
-<!-- 						file upload element -->
-						
-							<div class="form-group">
-							<label class="control-label col-md-4" for="file">Image</label>
+
+						<!--file upload element -->
+
+						<div class="form-group">
+							<label class="col-form-label-lg col-md-4" for="file">Image</label>
 
 							<div class="col-md-8">
 
-								<sf:input type="file" path="file" id="file"
-									 class="form-control" />
+								<sf:input type="file" path="file" id="file" class="form-control" />
+
+								<!-- adding validator for image -->
+
+								<sf:errors path="file" cssClass="help-block" element="em" />
 							</div>
 
 						</div>
-						
-						
-						
+
+
+
 						<!-- ----------------------------------------------------------------------------------------------------------------------- -->
 
 						<div class="form-group">
-							<label class="control-label col-md-4">Category</label>
+							<label class="col-form-label-lg col-md-4">Category</label>
 							<div class="col-md-8">
 								<sf:select path="categoryId" items="${categories}"
 									itemLabel="name" itemValue="id" class="form-control" />
+
+								<c:if test="${ product.id == 0}">
+									<div class="text-right">
+										<br />
+										<button type="button" data-toggle="modal"
+											data-target="#myCategoryModal"
+											class="btn btn-outline-success">Add Category</button>
+									</div>
+
+
+
+								</c:if>
+
 							</div>
 						</div>
 
@@ -143,8 +163,8 @@
 
 							<div class="col-md-offset col-md-8">
 
-								<input type="submit" name="submit" id="submit" value="submit"
-									class="btn btn-primary" />
+								<input type="submit" name="submit" id="submit" value="Submit"
+									class="btn btn-outline-primary" />
 
 
 								<sf:hidden path="id" />
@@ -170,4 +190,72 @@
 		</div>
 
 	</div>
+
+
+	<div class="col-xs-12">
+		<h3>Available Products</h3>
+		<hr />
+
+	</div>
+
+	<div class="col-xs-12">
+
+		<div style="overflow: auto"></div>
+
+		<!-- product table for admin -->
+		<table id="adminProductTable"
+			class="table table-striped table-bordered">
+			<thead>
+				<tr>
+					<th>ID</th>
+					<th>&#160;</th>
+					<th>Name</th>
+					<th>brand</th>
+					<th>Quantity</th>
+					<th>Unit Price</th>
+					<th>Active</th>
+					<th>Edit</th>
+				</tr>
+			</thead>
+		</table>
+		<hr />
+	</div>
+	<div class="modal fade" id="myCategoryModal" tabindex="-1"
+		role="dialog" aria-labelledby="exampleModalCenterTitle"
+		aria-hidden="true">
+		<div class="modal-dialog modal-dialog-centered" role="document">
+			<div class="modal-content">
+				<div class="modal-header">
+					<h5 class="modal-title" id="exampleModalLongTitle">Adding New
+						Category</h5>
+					<button type="button" class="close" data-dismiss="modal"
+						aria-label="Close">
+						<span aria-hidden="true">&times;</span>
+					</button>
+				</div>
+				<div class="modal-body">
+					<!--category form -->
+					<sf:form id="categoryForm" modelAttribute="category" action="${contextRoot}/manage/category" method="POST" class="form-horizontal">
+					<div class="form-group">
+					<label for="category_name" class="control-label col-md-4">Category Name</label>
+					<sf:input type="text" path="name" id="category_name" class="form-control"/>
+					</div>
+					<div class="form-group">
+					<label for="category_description" class="control-label col-md-4">Category Description</label>
+					<sf:textarea cols="" rows="5" type="text" path="description" id="category_description" class="form-control"/>
+					</div>
+				
+				</div>
+				<div class="modal-footer">
+					<button type="button" class="btn btn-secondary"
+						data-dismiss="modal">Close</button>
+					<input type="submit" value="ADD Category" class="btn btn-primary">
+				</div>
+			</div>
+			
+		</div>
+			</sf:form>
+	</div>
 </div>
+
+

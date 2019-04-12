@@ -41,13 +41,13 @@ public class TestCategory {
 //	category=categoryDAO.get(3);
 //	assertEquals("sucessfull get by id a single ","mobile",category.getName());
 //	}
-//
-//	@Test
-//	public void updateCategory() {
-//	category=categoryDAO.get(3);
-//	category.setName("phone")  ; 
-//	assertEquals("sucessfull update ",true,categoryDAO.update(category));
-//	}
+
+	@Test
+	public void updateCategory() {
+	category=categoryDAO.get(3);
+	category.setImageUrl("45street"); 
+	assertEquals("sucessfull update ",true,categoryDAO.update(category));
+	}
 //	
 //	@Test
 //	public void deleteCategory() {
@@ -63,8 +63,8 @@ public class TestCategory {
 //	assertEquals("sucessfull list of Category ",2,categoryDAO.CList().size());
 //	}
 
-	@Test
-	public void CRUD() {
+//	@Test
+//	public void CRUD() {
 
 //			
 //		//ADDING.....................
@@ -98,7 +98,7 @@ public class TestCategory {
 	
 
 	//list.................................................
-	assertEquals("sucessfull list of Category ",2,categoryDAO.CList().size());
+	//assertEquals("sucessfull list of Category ",2,categoryDAO.CList().size());
 	
 	}
-}
+//}

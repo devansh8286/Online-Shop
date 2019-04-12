@@ -1,3 +1,8 @@
+body{
+	padding-top: 56px;
+	
+}
+
 .dataTableImg{
 	width:100px;
 	height:100px;
@@ -9,4 +14,9 @@
 }
 .btn-product{
 	width: 100%;
+}
+
+.adminDataTableImg{
+	width:100px;
+	height:100px
 }

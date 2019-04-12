@@ -32,7 +32,7 @@ public class Product{
 	private String brand;
 	
 	@JsonIgnore
-	@NotBlank(message="please enter Discription1")
+	@NotBlank(message="please enter Discription!")
 	private String description;
 	
 	@Column(name = "unit_price")
@@ -42,7 +42,7 @@ public class Product{
 	private int quantity;
 	
 	@Column(name = "is_active")
-	@JsonIgnore
+	
 	private boolean active;
 	
 	@Column(name = "category_id")

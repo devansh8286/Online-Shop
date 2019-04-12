@@ -31,26 +31,26 @@ public class TestProduct{
 		public void testCRUDProduct() {
 			
 			// create operation
-			product = new Product();
-					
-			product.setName("c1");
-			product.setBrand("comio");
-			product.setDescription("This is some description for  comio mobile phones!");
-			product.setUnitprice(6000);
-			product.setActive(true);
-			product.setCategoryId(3);
-			product.setSupplierId(3);
-			
-			assertEquals("Something went wrong while inserting a new product!",
-					true,productDAO.add(product));		
-		}	
-	/*		
+//			product = new Product();
+//					
+//			product.setName("c1");
+//			product.setBrand("comio");
+//			product.setDescription("This is some description for  comio mobile phones!");
+//			product.setUnitprice(6000);
+//			product.setActive(true);
+//			product.setCategoryId(3);
+//			product.setSupplierId(3);
+//			
+//			assertEquals("Something went wrong while inserting a new product!",
+//					true,productDAO.add(product));		
+//		}	
+	
 			// reading and updating the category
 			product = productDAO.get(2);
-			product.setName("Samsung Galaxy S7");
+			product.setCode("SadsyS7");
 			assertEquals("Something went wrong while updating the existing record!",
 					true,productDAO.update(product));		
-					
+	/*				
 			assertEquals("Something went wrong while deleting the existing record!",
 					true,productDAO.delete(product));		
 			
@@ -60,12 +60,12 @@ public class TestProduct{
 					
 		}
 			*/	
-		
-		@Test
-		public void testListActiveProducts() {
-			assertEquals("Something went wrong while fetching the list of products!",
-					5,productDAO.listActiveProducts().size());				
-		} 
+//		
+//		@Test
+//		public void testListActiveProducts() {
+//			assertEquals("Something went wrong while fetching the list of products!",
+//					5,productDAO.listActiveProducts().size());				
+//		} 
 //		
 //		
 //		@Test
@@ -85,5 +85,5 @@ public class TestProduct{
 		
 		
 		
-			
+		}			
 	}

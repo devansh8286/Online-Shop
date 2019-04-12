@@ -6,7 +6,6 @@
 <spring:url var="img" value="/Resources/image" />
 <c:set var="contextRoot" value="${pageContext.request.contextPath}" />
 <!-- -------------------------------------------------------------------------------------------------------- -->
-<script src="${js}/jquery.dataTables.js"></script>
 <!-- -------------------------------------------------------------------------------------------------------------------- -->
 
 <c:set var="contextRoot" value="${pageContext.request.contextPath}" />
@@ -62,8 +61,6 @@
 					</div>
 
 
-					<script
-						src="https://cdn.datatables.net/1.10.16/js/dataTables.bootstrap4.min.js"></script>
 					<div class="container">
 						<div class="row">
 							<table id="productListTable"
@@ -89,5 +86,6 @@
 			</div>
 		</div>
 
-	</div>
+	</div> 	
 </div>
+
