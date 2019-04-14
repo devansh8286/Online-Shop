@@ -1,9 +1,7 @@
 package com.project.Backend.DAOImpl;
 
-import java.util.ArrayList;
 import java.util.List;
 
-import javax.transaction.Transaction;
 
 import org.hibernate.SessionFactory;
 import org.hibernate.query.Query;

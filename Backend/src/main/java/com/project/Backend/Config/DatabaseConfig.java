@@ -47,7 +47,7 @@ public class DatabaseConfig {
 		LocalSessionFactoryBuilder builder = new LocalSessionFactoryBuilder(dataSource);
 
 		builder.addProperties(getHibernateProperties());
-		builder.scanPackages("com.project.Backend.Model");
+		builder.scanPackages("com.project.Backend");
 
 		return builder.buildSessionFactory();
 	}
@@ -60,9 +60,12 @@ public class DatabaseConfig {
 		properties.put("hibernate.dialect", DATABASE_DIALECT);		
 		properties.put("hibernate.show_sql", "true");
 		properties.put("hibernate.format_sql", "true");
-		properties.put("hibernate.hbm2ddl.auto", "update");  // change to update after all complete
+		properties.put("hibernate.hbm2ddl.auto", "update");//after all done create to update  
+	
 		System.out.println("Hibernate Properties created");
+		
 		return properties;
+		
 
 	}
 	
